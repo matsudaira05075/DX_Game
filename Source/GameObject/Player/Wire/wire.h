@@ -1,0 +1,29 @@
+//==========================================================
+//	[water.h]
+//
+//									çÏê¨ì˙ 2022/07/04
+//									çÏê¨é“ èºïΩçNå˜
+//==========================================================
+#pragma once
+#include "../../../InterFace/gameObject.h"
+
+class Wire : public GameObject
+{
+private:
+
+	ID3D11Buffer* m_VertexBuffer = NULL;
+	ID3D11ShaderResourceView* m_Texture = NULL;
+
+	ID3D11VertexShader* m_VertexShader = NULL;
+	ID3D11PixelShader* m_PixelShader = NULL;
+	ID3D11InputLayout* m_VertexLayout = NULL;
+
+	VERTEX_3D					m_vertex[4];
+	void SetVertex();
+
+public:
+	void	Init();
+	void	Uninit();
+	void	Update();
+	void	Draw();
+};

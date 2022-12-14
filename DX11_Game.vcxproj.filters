@@ -1,0 +1,234 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="ソース ファイル">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="リソース ファイル">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="ソース ファイル\InterFace">
+      <UniqueIdentifier>{1155e29a-74b5-44db-9635-f4552c3bd8ff}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\Main">
+      <UniqueIdentifier>{13c33953-47a6-43fe-aaba-aa1c802fc8ea}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\System">
+      <UniqueIdentifier>{5dfae46b-ca7f-4549-b3f0-65354fc73a17}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\Scene">
+      <UniqueIdentifier>{661addb8-eece-43ee-938d-9c3eab5faf2a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\Shader">
+      <UniqueIdentifier>{7d1198a4-c05e-40c7-8017-ee785cb44189}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\GameObject">
+      <UniqueIdentifier>{36ecdd0e-11c0-4522-8876-580ac6f6dceb}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\GameObject\Player">
+      <UniqueIdentifier>{a8cfb356-4c99-4ad4-95f0-2559a316765a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\GameObject\Camera">
+      <UniqueIdentifier>{b57b0389-4855-4d77-ab71-bcaaa46c4a19}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\GameObject\Field">
+      <UniqueIdentifier>{bc316186-46ec-4fda-a8b8-ad912408e3f3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\System\Model">
+      <UniqueIdentifier>{d99cc571-2f7a-4cb7-91af-baeaea0f409a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\GameObject\Player\State">
+      <UniqueIdentifier>{0bdbb900-9939-4bca-b5c8-1b66f7648320}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\GameObject\SkyBox">
+      <UniqueIdentifier>{784fd8fd-73ea-4a91-a650-86273892fd04}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\GameObject\Water">
+      <UniqueIdentifier>{f51ee68f-3dce-465a-aff5-6eda5bd561a4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\GameObject\Enemy">
+      <UniqueIdentifier>{77fb61aa-f14b-4944-8588-97b0dd45df7e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\Imgui">
+      <UniqueIdentifier>{c981a380-a279-4bb5-9519-d90289015693}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\Imgui\backends">
+      <UniqueIdentifier>{b354993f-1cab-473e-b4e9-38923adbf89a}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <FxCompile Include="Shader\pixelShader.hlsl">
+      <Filter>ソース ファイル\Shader</Filter>
+    </FxCompile>
+    <FxCompile Include="Shader\vertexShader.hlsl">
+      <Filter>ソース ファイル\Shader</Filter>
+    </FxCompile>
+    <FxCompile Include="Shader\unlitTexturePS.hlsl">
+      <Filter>ソース ファイル\Shader</Filter>
+    </FxCompile>
+    <FxCompile Include="Shader\unlitTextureVS.hlsl">
+      <Filter>ソース ファイル\Shader</Filter>
+    </FxCompile>
+    <FxCompile Include="Shader\common.hlsl">
+      <Filter>ソース ファイル\Shader</Filter>
+    </FxCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Source\InterFace\gameObject.h">
+      <Filter>ソース ファイル\InterFace</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\InterFace\scene.h">
+      <Filter>ソース ファイル\InterFace</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\InterFace\ui.h">
+      <Filter>ソース ファイル\InterFace</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Main\main.h">
+      <Filter>ソース ファイル\Main</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\System\input.h">
+      <Filter>ソース ファイル\System</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\System\manager.h">
+      <Filter>ソース ファイル\System</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\System\renderer.h">
+      <Filter>ソース ファイル\System</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Scene\gameScene.h">
+      <Filter>ソース ファイル\Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\GameObject\Camera\camera.h">
+      <Filter>ソース ファイル\GameObject\Camera</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\GameObject\Player\player.h">
+      <Filter>ソース ファイル\GameObject\Player</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\GameObject\Field\meshField.h">
+      <Filter>ソース ファイル\GameObject\Field</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\System\Model\animationModel.h">
+      <Filter>ソース ファイル\System\Model</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\System\Model\model.h">
+      <Filter>ソース ファイル\System\Model</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\GameObject\Player\PlayerState\playerState.h">
+      <Filter>ソース ファイル\GameObject\Player\State</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\GameObject\SkyBox\skyBox.h">
+      <Filter>ソース ファイル\GameObject\SkyBox</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\GameObject\Water\water.h">
+      <Filter>ソース ファイル\GameObject\Water</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\GameObject\Enemy\enemy.h">
+      <Filter>ソース ファイル\GameObject\Enemy</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\GameObject\Player\Wire\wire.h">
+      <Filter>ソース ファイル\GameObject\Player</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\System\time.h">
+      <Filter>ソース ファイル\System</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\System\debug.h">
+      <Filter>ソース ファイル\System</Filter>
+    </ClInclude>
+    <ClInclude Include="imgui\backends\imgui_impl_dx11.h">
+      <Filter>ソース ファイル\Imgui\backends</Filter>
+    </ClInclude>
+    <ClInclude Include="imgui\backends\imgui_impl_win32.h">
+      <Filter>ソース ファイル\Imgui\backends</Filter>
+    </ClInclude>
+    <ClInclude Include="imgui\imconfig.h">
+      <Filter>ソース ファイル\Imgui</Filter>
+    </ClInclude>
+    <ClInclude Include="imgui\imgui.h">
+      <Filter>ソース ファイル\Imgui</Filter>
+    </ClInclude>
+    <ClInclude Include="imgui\imgui_internal.h">
+      <Filter>ソース ファイル\Imgui</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="Source\Main\main.cpp">
+      <Filter>ソース ファイル\Main</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\System\input.cpp">
+      <Filter>ソース ファイル\System</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\System\manager.cpp">
+      <Filter>ソース ファイル\System</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\System\renderer.cpp">
+      <Filter>ソース ファイル\System</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Scene\gameScene.cpp">
+      <Filter>ソース ファイル\Scene</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\GameObject\Camera\camera.cpp">
+      <Filter>ソース ファイル\GameObject\Camera</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\GameObject\Player\player.cpp">
+      <Filter>ソース ファイル\GameObject\Player</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\GameObject\Field\meshField.cpp">
+      <Filter>ソース ファイル\GameObject\Field</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\System\Model\animationModel.cpp">
+      <Filter>ソース ファイル\System\Model</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\System\Model\model.cpp">
+      <Filter>ソース ファイル\System\Model</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\GameObject\Player\PlayerState\playerState_idle.cpp">
+      <Filter>ソース ファイル\GameObject\Player\State</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\GameObject\Player\PlayerState\playerState_jump.cpp">
+      <Filter>ソース ファイル\GameObject\Player\State</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\GameObject\Player\PlayerState\playerState_run.cpp">
+      <Filter>ソース ファイル\GameObject\Player\State</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\GameObject\SkyBox\skyBox.cpp">
+      <Filter>ソース ファイル\GameObject\SkyBox</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\GameObject\Water\water.cpp">
+      <Filter>ソース ファイル\GameObject\Water</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\GameObject\Enemy\enemy.cpp">
+      <Filter>ソース ファイル\GameObject\Enemy</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\GameObject\Player\Wire\wire.cpp">
+      <Filter>ソース ファイル\GameObject\Player</Filter>
+    </ClCompile>
+    <ClCompile Include="imgui\backends\imgui_impl_dx11.cpp">
+      <Filter>ソース ファイル\Imgui\backends</Filter>
+    </ClCompile>
+    <ClCompile Include="imgui\backends\imgui_impl_win32.cpp">
+      <Filter>ソース ファイル\Imgui\backends</Filter>
+    </ClCompile>
+    <ClCompile Include="imgui\imgui.cpp">
+      <Filter>ソース ファイル\Imgui</Filter>
+    </ClCompile>
+    <ClCompile Include="imgui\imgui_demo.cpp">
+      <Filter>ソース ファイル\Imgui</Filter>
+    </ClCompile>
+    <ClCompile Include="imgui\imgui_draw.cpp">
+      <Filter>ソース ファイル\Imgui</Filter>
+    </ClCompile>
+    <ClCompile Include="imgui\imgui_tables.cpp">
+      <Filter>ソース ファイル\Imgui</Filter>
+    </ClCompile>
+    <ClCompile Include="imgui\imgui_widgets.cpp">
+      <Filter>ソース ファイル\Imgui</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <Natvis Include="imgui\misc\debuggers\imgui.natvis">
+      <Filter>ソース ファイル\Imgui\backends</Filter>
+    </Natvis>
+  </ItemGroup>
+</Project>
