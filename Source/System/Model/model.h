@@ -46,14 +46,14 @@ private:
 	ID3D11Buffer*	m_VertexBuffer;
 	ID3D11Buffer*	m_IndexBuffer;
 
-	SUBSET*	m_SubsetArray;
+	
 	unsigned int	m_SubsetNum;
 
 	void LoadObj( const char *FileName, MODEL *Model );
 	void LoadMaterial( const char *FileName, MODEL_MATERIAL **MaterialArray, unsigned int *MaterialNum );
 
 public:
-
+	SUBSET* m_SubsetArray;
 	void Draw();
 
 	void Load( const char *FileName );

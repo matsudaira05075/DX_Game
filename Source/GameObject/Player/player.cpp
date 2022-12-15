@@ -185,6 +185,10 @@ void Player::UpdateMove()
 		}
 	}
 
+	if (Input::GetKeyTrigger('E'))
+	{
+		Manager::GetScene()->AddGameObject<Wire>(1)->SetPosition(m_position);
+	}
 
 	if (m_velocity.x >= m_maxRunSpeed)
 		m_velocity.x = m_maxRunSpeed;
@@ -214,7 +218,7 @@ void Player::UpdateMove()
 	{
 		//Manager::GetScene()->AddGameObject<Wire>(1)->SetPosition(m_position);
 	}
-
+	SettingPanel();
 
 }
 
@@ -239,4 +243,9 @@ void Player::UpdateGravity()
 	m_position += m_velocity;
 }
 
+void Player::SettingPanel() 
+{
 
+	ImGui::Begin("Player");
+	ImGui::End();
+}

@@ -31,6 +31,7 @@ private:
 
 	
 	void UpdateGravity();
+	void SettingPanel();
 
 public:
 	std::string Name;

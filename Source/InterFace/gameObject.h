@@ -40,6 +40,7 @@ public:
 
 	// ƒQƒbƒ^[
 	D3DXVECTOR3 GetPosition() { return m_position; }
+	D3DXVECTOR3 GetRotation() { return m_rotation; }
 	D3DXVECTOR3 GetScale() { return m_scale; }
 	bool GetAlive() { return this->m_alive; };
 
