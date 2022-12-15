@@ -93,7 +93,8 @@ public:
 	virtual void Draw()
 	{
 #ifdef _DEBUG
-		ImGui::Begin("testWindow");
+		ImGui::Begin("Operation Description");
+		ImGui::Text("Cntl : MouseControl");
 #endif
 		for (int i = 0; i < 3; i++)
 		{

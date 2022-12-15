@@ -20,11 +20,11 @@ class Camera : public GameObject
 {
 
 private:
-	class Player*		m_player = nullptr;
+	class Player* m_player = nullptr;
 	D3DXVECTOR3			m_target;	// player�̈ʒu
 	D3DXVECTOR3			m_vector;
-	bool				m_shakeUse;
 	D3DXVECTOR3			m_shakePower;
+	bool				m_shakeUse;
 	float				m_cameraHAngle;
 	float				m_cameraVAngle;
 
@@ -37,6 +37,7 @@ public:
 	void Update()override;
 	void Draw()override;
 
+	void InputCamera();
 	float			GetCameraAngle();
 	D3DXVECTOR3		GetCameraVector();
 	void			StartShake(float power);

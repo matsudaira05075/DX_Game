@@ -115,6 +115,19 @@ void Renderer::Init()
 	ImGui_ImplDX11_Init(m_D3DDevice, m_ImmediateContext);
 
 
+	//	Fonts
+	//  imgui/misc/fonts階層下にフォントが用意されている
+	const int fontSize = 20;
+	io.Fonts->AddFontFromFileTTF("imgui/misc/fonts/Roboto-Medium.ttf", fontSize);
+
+	//  PC内のフォントを使用することも可能
+	//  AddFontFromFileTTFはImFont*が返ってくるので、保存することもできるらしい。
+	//  ImFont* font = io.Fonts->AddFontFromFileTTF("c:\\Windows\\Fonts\\arial.ttf", m_ImGuiFontSize, NULL, io.Fonts->GetGlyphRangesJapanese());
+
+	//IM_ASSERT(font != NULL);
+
+
+
 	// ビューポート設定
 	D3D11_VIEWPORT vp;
 	vp.Width = (FLOAT)SCREEN_WIDTH;

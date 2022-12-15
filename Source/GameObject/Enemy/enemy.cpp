@@ -16,15 +16,15 @@ void Enemy::Init()
 	m_Model = new AnimationModel();
 	m_Model->Load("asset\\animation\\player_Idle.fbx");
 
-	m_Model->LoadAnimation("asset\\animation\\player_Idle.fbx","Idle");
+	m_Model->LoadAnimation("asset\\animation\\player_Idle.fbx", "Idle");
 	//m_Model->LoadAnimation("asset\\animation\\player_Run.fbx","Run");
 	//m_Model->LoadAnimation("asset\\animation\\player_Jump.fbx", "RunJump");
 
 	m_AnimationName = "Idle";
 
-	m_position = D3DXVECTOR3( 0.0f, 0.0f, 0.0f );
-	m_rotation = D3DXVECTOR3( 0.0f, 0.0f, 0.0f );
-	m_scale = D3DXVECTOR3( 0.01f, 0.01f, 0.01f );
+	m_position = D3DXVECTOR3(0.0f, 0.0f, 0.0f);
+	m_rotation = D3DXVECTOR3(0.0f, 0.0f, 0.0f);
+	m_scale = D3DXVECTOR3(0.01f, 0.01f, 0.01f);
 	m_velocity = D3DXVECTOR3(0.0f, 0.0f, 0.0f);
 	m_rotVelocity = D3DXVECTOR3(0.0f, 0.0f, 0.0f);
 
@@ -32,7 +32,7 @@ void Enemy::Init()
 	m_maxRunSpeed = 0.15f;
 	m_jumpPower = 0.2f;			// プレイヤーのジャンプ力
 	m_jumpFlg = false;
-	
+
 	m_moveFlg = false;
 	m_Frame = 0;
 
@@ -53,7 +53,7 @@ void Enemy::Uninit()
 
 void Enemy::Update()
 {
-		
+
 	//
 	////m_state->Update(this);
 
@@ -86,7 +86,7 @@ void Enemy::Update()
 
 void Enemy::Draw()
 {
-	//m_Model->Update(/*m_AnimationName.c_str()*/"Idle", m_Frame);
+	m_Model->Update(/*m_AnimationName.c_str()*/"Idle", m_Frame);
 
 	// マトリクス設定
 	D3DXMATRIX world, scale, rot, trans;

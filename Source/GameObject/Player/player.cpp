@@ -21,17 +21,17 @@ void Player::Init()
 	m_Model = new AnimationModel();
 	m_Model->Load("asset\\animation\\player_Idle.fbx");
 
-	m_Model->LoadAnimation("asset\\animation\\player_Idle.fbx","Idle");
-	m_Model->LoadAnimation("asset\\animation\\player_Run.fbx","Run");
+	m_Model->LoadAnimation("asset\\animation\\player_Idle.fbx", "Idle");
+	m_Model->LoadAnimation("asset\\animation\\player_Run.fbx", "Run");
 	m_Model->LoadAnimation("asset\\animation\\player_Jump.fbx", "RunJump");
 
 	m_AnimationName = "Idle";
 
 
 
-	m_position = D3DXVECTOR3( 0.0f, 0.0f, 0.0f );
-	m_rotation = D3DXVECTOR3( 0.0f, 0.0f, 0.0f );
-	m_scale = D3DXVECTOR3( 0.01f, 0.01f, 0.01f );
+	m_position = D3DXVECTOR3(0.0f, 0.0f, 0.0f);
+	m_rotation = D3DXVECTOR3(0.0f, 0.0f, 0.0f);
+	m_scale = D3DXVECTOR3(0.01f, 0.01f, 0.01f);
 	m_velocity = D3DXVECTOR3(0.0f, 0.0f, 0.0f);
 	m_rotVelocity = D3DXVECTOR3(0.0f, 0.0f, 0.0f);
 
@@ -39,7 +39,7 @@ void Player::Init()
 	m_maxRunSpeed = 0.15f;
 	m_jumpPower = 0.2f;			// プレイヤーのジャンプ力
 	m_jumpFlg = false;
-	
+
 	m_moveFlg = false;
 	m_Frame = 0;
 
@@ -64,14 +64,14 @@ void Player::Update()
 {
 	if (g_camera == nullptr)
 		return;
-		
-	
+
+
 
 
 	m_state->Update(this);
 
 	UpdateGravity();
-	
+
 
 	// メッシュフィールドの高さ取得
 	MeshField* field = Manager::GetScene()->GetGameObject<MeshField>(1);
@@ -101,7 +101,7 @@ void Player::Update()
 
 void Player::Draw()
 {
-	//m_Model->Update(m_AnimationName.c_str(),m_Frame);
+	m_Model->Update(m_AnimationName.c_str(), m_Frame);
 
 	// マトリクス設定
 	D3DXMATRIX world, scale, rot, trans;
@@ -133,57 +133,57 @@ void Player::UpdateMove()
 		}
 	}
 
-		if ((Input::GetKeyPress('W') && Input::GetKeyPress('A')))
+	if ((Input::GetKeyPress('W') && Input::GetKeyPress('A')))
+	{
+		m_velocity += D3DXVECTOR3(-vec.z, 0.0f, vec.x) * m_runSpeed;
+		m_velocity += D3DXVECTOR3(vec.x, 0.0f, vec.z) * m_runSpeed;
+		m_rotVelocity.y = angle + (D3DX_PI / 4) * 3;
+	}
+	else if ((Input::GetKeyPress('W') && Input::GetKeyPress('D')))
+	{
+		m_velocity -= D3DXVECTOR3(-vec.z, 0.0f, vec.x) * m_runSpeed;
+		m_velocity += D3DXVECTOR3(vec.x, 0.0f, vec.z) * m_runSpeed;
+		m_rotVelocity.y = angle - (D3DX_PI / 4) * 3;
+
+	}
+	else if ((Input::GetKeyPress('S') && Input::GetKeyPress('A')))
+	{
+		m_velocity += D3DXVECTOR3(-vec.z, 0.0f, vec.x) * m_runSpeed;
+		m_velocity -= D3DXVECTOR3(vec.x, 0.0f, vec.z) * m_runSpeed;
+		m_rotVelocity.y = angle + D3DX_PI / 4;
+
+	}
+	else if ((Input::GetKeyPress('S') && Input::GetKeyPress('D')))
+	{
+		m_velocity -= D3DXVECTOR3(-vec.z, 0.0f, vec.x) * m_runSpeed;
+		m_velocity -= D3DXVECTOR3(vec.x, 0.0f, vec.z) * m_runSpeed;
+		m_rotVelocity.y = angle - D3DX_PI / 4;
+
+	}
+	else
+	{
+		if (Input::GetKeyPress('A'))
 		{
 			m_velocity += D3DXVECTOR3(-vec.z, 0.0f, vec.x) * m_runSpeed;
-			m_velocity += D3DXVECTOR3(vec.x, 0.0f, vec.z) * m_runSpeed;
-			m_rotVelocity.y = angle + (D3DX_PI / 4) * 3;
+			m_rotVelocity.y = angle + D3DX_PI / 2;
 		}
-		else if ((Input::GetKeyPress('W') && Input::GetKeyPress('D')))
+		if (Input::GetKeyPress('D'))
 		{
 			m_velocity -= D3DXVECTOR3(-vec.z, 0.0f, vec.x) * m_runSpeed;
+			m_rotVelocity.y = angle - D3DX_PI / 2;
+		}
+		if (Input::GetKeyPress('W'))
+		{
 			m_velocity += D3DXVECTOR3(vec.x, 0.0f, vec.z) * m_runSpeed;
-			m_rotVelocity.y = angle - (D3DX_PI / 4) * 3;
+			m_rotVelocity.y = angle + D3DX_PI;
 
 		}
-		else if ((Input::GetKeyPress('S') && Input::GetKeyPress('A')))
+		if (Input::GetKeyPress('S'))
 		{
-			m_velocity += D3DXVECTOR3(-vec.z, 0.0f, vec.x) * m_runSpeed;
 			m_velocity -= D3DXVECTOR3(vec.x, 0.0f, vec.z) * m_runSpeed;
-			m_rotVelocity.y = angle + D3DX_PI / 4;
-
+			m_rotVelocity.y = angle;
 		}
-		else if ((Input::GetKeyPress('S') && Input::GetKeyPress('D')))
-		{
-			m_velocity -= D3DXVECTOR3(-vec.z, 0.0f, vec.x) * m_runSpeed;
-			m_velocity -= D3DXVECTOR3(vec.x, 0.0f, vec.z) * m_runSpeed;
-			m_rotVelocity.y = angle - D3DX_PI / 4;
-
-		}
-		else
-		{
-			if (Input::GetKeyPress('A'))
-			{
-				m_velocity += D3DXVECTOR3(-vec.z, 0.0f, vec.x) * m_runSpeed;
-				m_rotVelocity.y = angle + D3DX_PI / 2;
-			}
-			if (Input::GetKeyPress('D'))
-			{
-				m_velocity -= D3DXVECTOR3(-vec.z, 0.0f, vec.x) * m_runSpeed;
-				m_rotVelocity.y = angle - D3DX_PI / 2;
-			}
-			if (Input::GetKeyPress('W'))
-			{
-				m_velocity += D3DXVECTOR3(vec.x, 0.0f, vec.z) * m_runSpeed;
-				m_rotVelocity.y = angle + D3DX_PI;
-
-			}
-			if (Input::GetKeyPress('S'))
-			{
-				m_velocity -= D3DXVECTOR3(vec.x, 0.0f, vec.z) * m_runSpeed;
-				m_rotVelocity.y = angle;
-			}
-		}
+	}
 
 
 	if (m_velocity.x >= m_maxRunSpeed)
@@ -209,13 +209,13 @@ void Player::UpdateMove()
 	else if (m_rotation.y < -D3DX_PI)
 		m_rotation.y += D3DX_PI * 2.0f;
 
-	
+
 	if (Input::GetKeyTrigger('E'))
 	{
 		//Manager::GetScene()->AddGameObject<Wire>(1)->SetPosition(m_position);
 	}
 
-	
+
 }
 
 void Player::ActionJump()
