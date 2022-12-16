@@ -51,6 +51,8 @@ void Player::Init()
 
 	g_camera = Manager::GetScene()->GetGameObject<Camera>(0);
 
+	Manager::GetScene()->AddGameObject<Wire>(1);
+
 }
 
 
@@ -213,12 +215,12 @@ void Player::UpdateMove()
 	else if (m_rotation.y < -D3DX_PI)
 		m_rotation.y += D3DX_PI * 2.0f;
 
-
-	if (Input::GetKeyTrigger('E'))
-	{
-		//Manager::GetScene()->AddGameObject<Wire>(1)->SetPosition(m_position);
-	}
-	SettingPanel();
+	
+	//if (Input::GetKeyTrigger('E'))
+	//{
+	//	//Manager::GetScene()->AddGameObject<Wire>(1)->SetPosition(m_position);
+	//}
+	//SettingPanel();
 
 }
 

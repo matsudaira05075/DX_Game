@@ -14,7 +14,6 @@
 
 namespace
 {
-	static float	hikyori;
 	static int		g_cnt;		// 時間観測用
 }
 
@@ -26,10 +25,17 @@ void Wire::Init()
 	// 初期化
 	m_position = D3DXVECTOR3(0.0f, 5.0f, 0.0f);
 	m_rotation = D3DXVECTOR3(0.0f, 0.0f, 0.0f);
-	m_scale = D3DXVECTOR3(0.3f, 0.3f, 0.3f);
+	m_scale = D3DXVECTOR3(0.3f, 0.3f, 0.3);
 	m_tongueVec = D3DXVECTOR3(0.0f, 0.0f, 0.0f);
 
-	hikyori = 1.0f;
+	m_stateStrech = new WireState_Stretch;
+	m_stateShrink = new WireState_Shrink;
+	m_stateBack = new WireState_Back;
+	m_stateAtack = new WireState_Atack;
+
+	m_state = m_stateStrech;
+
+	m_flyDistance = 1.0f;
 	g_cnt = 0;
 
 
@@ -42,10 +48,7 @@ void Wire::Init()
 	m_position = m_player->GetPosition();
 	m_position.y += 1.0f;
 
-
 	m_rotation.y = m_player->GetRotation().y;
-	m_tongueState = STRETCH;
-
 	m_Model->m_SubsetArray->Material.Material.Diffuse = D3DXCOLOR(1.0f, 0.0f, 0.0f, 1.0f);
 
 	Renderer::CreateVertexShader(&m_VertexShader, &m_VertexLayout, "vertexShader.cso");
@@ -65,41 +68,17 @@ void Wire::Uninit()
 
 void Wire::Update()
 {
-	//// 常に舌の位置にPlayerの位置を代入する
-	//m_position = m_player->GetPosition();
-	//m_position.y += 1.0f;
+	// 常に舌の位置にPlayerの位置を代入する
+	m_position = m_player->GetPosition();
+	m_position.y += 1.0f;
 
-	//// 伸びていく状態
-	//if (m_tongueState == STRETCH)
-	//{
-	//	hikyori += 1.0f;
+	m_state->Update(this);
 
-	//	m_position += m_camera->GetCameraVector() * hikyori;
-	//	m_scale.z += 2.0f;
+	
 
-	//	// 一定時間削除(現在の時間-生成時間が一定量を超えていたら削除)
-	//	if (m_scale.z >= 20.0f)
-	//	{
-	//		SetDestroy();
-	//		m_tongueState = SHRINK;
-	//	}
-	//}
 
-	//// 縮んでいく状態
-	//else if (m_tongueState == SHRINK)
-	//{
-	//	hikyori -= 1.0f;
 
-	//	m_position += m_camera->GetCameraVector() * hikyori;
-	//	m_scale.x -= 2.0f;
 
-	//	if (m_scale.x <= 0.3f)
-	//	{
-	//		SetDestroy();
-	//		hikyori = 1.0f;
-	//		return;
-	//	}
-	//}
 
 	//// 助走をつけている状態
 	//else if (m_tongueState == BACK)

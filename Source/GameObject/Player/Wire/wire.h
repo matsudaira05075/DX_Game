@@ -6,6 +6,7 @@
 //==========================================================
 #pragma once
 #include "../../../InterFace/gameObject.h"
+#include "wireState.h"
 
 enum WIRESTATE
 {
@@ -26,13 +27,20 @@ private:
 	ID3D11InputLayout* m_VertexLayout = NULL;
 
 	class			Model* m_Model;
-	class			Camera* m_camera;
+	
 	class			Player* m_player;
 	D3DXVECTOR3				m_tongueVec; // ’e‚Ì”ò‚ñ‚Å‚­•ûŠp
 	void SetVertex();
 
 public:
-	WIRESTATE m_tongueState;
+	float m_flyDistance;
+	class			Camera* m_camera;
+
+	class WireState* m_state;
+	class WireState_Stretch* m_stateStrech = nullptr;
+	class WireState_Shrink* m_stateShrink = nullptr;
+	class WireState_Back* m_stateBack = nullptr;
+	class WireState_Atack* m_stateAtack = nullptr;
 
 	void	Init() override;
 	void	Uninit() override;
